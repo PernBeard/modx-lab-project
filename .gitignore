@@ -1,0 +1,16 @@
+# ignore ht.access
+ht.access
+
+# ignore all . files
+*/.*
+
+# ignore all files and folders in root
+/*
+
+# except .gitignore and .gitify
+!.gitignore
+!.gitify
+
+# asset and _data
+!/assets/
+!/_data/
