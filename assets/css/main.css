@@ -1,0 +1,69 @@
+h1 {
+  color: #000;
+  font-family: nimbus-sans-condensed, sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 37px;
+  margin-bottom: 10px; }
+
+h2 {
+  color: #000;
+  font-family: nimbus-sans-condensed, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27px;
+  margin-bottom: 10px; }
+
+h3 {
+  color: #000;
+  font-family: proxima-nova, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  margin-bottom: 6px;
+  margin-top: 6px; }
+
+body {
+  font-family: proxima-nova, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  color: #686b72; }
+
+a:link,
+a:visited {
+  -webkit-transition: color 300ms ease-in;
+  -moz-transition: color 300ms ease-in;
+  -o-transition: color 300ms ease-in;
+  transition: color 300ms ease-in;
+  color: #7f873f; }
+
+a:active,
+a:focus,
+a:hover {
+  color: #4c5438;
+  text-decoration: none; }
+
+button {
+  color: #fff;
+  font-family: nimbus-sans-condensed, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 20px;
+  text-decoration: underline; }
+
+.button {
+  -webkit-transition: background 300ms ease-in;
+  -moz-transition: background 300ms ease-in;
+  -o-transition: background 300ms ease-in;
+  transition: background 300ms ease-in;
+  background: #7f873f;
+  border: 1px solid #fff;
+  padding: 10px 15px; }
+
+.button:hover {
+  background: #4c5438; }

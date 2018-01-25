@@ -1,0 +1,95 @@
+// Mixins
+@mixin transition($params) {
+	-webkit-transition: $params;
+	-moz-transition: $params;
+	-o-transition: $params;
+	transition: $params;
+}
+
+// Variables
+$nimbus: nimbus-sans-condensed, sans-serif;
+$proxima: proxima-nova, sans-serif;
+
+// Colors
+$gray1: #f2f2f2;
+$gray2: #eaeaea;
+$gray3: #d3d3d3;
+$gray4: #bfbfbf;
+$text_gray: #686b72;
+$green: #7f873f;
+$dark_green: #4c5438;
+
+// Text Styles
+h1 {
+	color: #000;
+	font-family: $nimbus;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 37px;
+	margin-bottom: 10px;
+}
+
+h2 {
+	color: #000;
+	font-family: $nimbus;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 27px;
+	margin-bottom: 10px;
+}
+
+h3 {
+	color: #000;
+	font-family: $proxima;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 20px;
+	margin-bottom: 6px;
+	margin-top: 6px;
+}
+
+body {
+	font-family: $proxima;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+	color: $text_gray;
+}
+
+a:link,
+a:visited {
+	@include transition(color 300ms ease-in);
+	color: $green;
+}
+
+a:active,
+a:focus,
+a:hover {
+	color: $dark_green;
+	text-decoration: none;
+}
+
+button {
+	color: #fff;
+	font-family: $nimbus;
+	font-size: 18px;
+	font-style: normal;
+	line-height: 20px;
+	text-decoration: underline;
+}
+
+// Button Styles
+.button {
+	@include transition(background 300ms ease-in);
+	background: $green;
+	border: 1px solid #fff;
+	padding: 10px 15px;
+}
+
+.button:hover {
+	background: $dark_green;
+}
