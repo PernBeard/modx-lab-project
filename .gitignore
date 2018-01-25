@@ -11,6 +11,10 @@ ht.access
 !.gitignore
 !.gitify
 
-# asset and _data
+# include gulpfile and package manager files
+!package.json
+!gulpfile.js
+
+# include /asset and /_data
 !/assets/
 !/_data/
