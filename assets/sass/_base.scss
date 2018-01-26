@@ -1,8 +1,5 @@
 // Mixins
 @mixin transition($params) {
-	-webkit-transition: $params;
-	-moz-transition: $params;
-	-o-transition: $params;
 	transition: $params;
 }
 
