@@ -1,0 +1,172 @@
+html, body {
+	background: $gray1;
+}
+
+.hero {
+	background: url('/assets/img/big-ears-festival-2016-header.jpg') no-repeat center center;
+	background-size: cover;
+}
+
+#logo {
+	display: block;
+	float: left;
+	padding-top: 35px;
+	padding-bottom: 35px;
+	padding-left: 0;
+
+	img {
+		height: auto;
+		width: 100%;
+	}
+}
+
+#hero-spacer {
+	@include transition(all 500ms ease-in);
+	border-right: 1px solid #fff;
+	float: left;
+	height: 0;
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+
+#hero-slider-container {
+	padding-top: 35px;
+	box-sizing: content-box;
+	position: relative;
+
+	#hero-slider {
+		@include transition(all 500ms ease-in);
+		padding: 0;
+		clip: rect(0 4000px 300px 0); /* IE4 to IE7 */
+		clip: rect(0, 4000px, 300px, 0); /* IE8+ & other browsers */
+		list-style: none;
+		height: 100%;
+		margin: 0;
+		width: 0;
+		position: absolute;
+		z-index: 1;
+
+		li {
+			@include transition(all 300ms ease-in);
+			position: absolute;
+			top: 0;
+			right: 0;
+			opacity: 0;
+			z-index: 5;
+
+			img {
+				max-width: none;
+				width: auto;
+			}
+
+			&.to-left {
+				right: 200%;
+				opacity: 0;
+			}
+			
+			&.to-right {
+				right: -100%;
+				opacity: 0;
+			}
+
+			&.active {
+				opacity: 1;
+			}
+		}
+	}
+
+	#slider-controls {
+		@include transition(all 300ms ease-in);
+		padding: 15px 0 0 30px;
+		opacity: 0;
+		position: absolute;
+		top: 100%;
+		
+		a {
+			display: inline-block;
+		}
+
+		a:first-child {
+			margin-right: 10px;
+		}
+	}
+}
+
+#event-cta-container {
+	background: #fff url(/assets/img/gradient-repeater.jpg) repeat-x left bottom;
+	box-shadow: 0px -12px 20px 0px rgba(0,0,0,0.25);
+	padding: 30px 50px 15px;
+	margin-bottom: -50px;
+
+	a {
+		display: inline-block;
+	}
+
+	a:first-child {
+		margin-right: 30px;
+	}
+}
+
+a.hover-img {
+	position: relative;
+
+	img {
+		@include transition(all 300ms ease-in);
+		opacity: 1;
+	}
+
+	img.hover-img {
+		opacity: 0;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+
+	&:hover {
+
+		img {
+			opacity: 0;
+		}
+
+		img.hover-img {
+			opacity: 1;
+			z-index: 5;
+		}
+
+	}
+}
+
+.event-cta-row {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.content-row {
+	padding: 80px 15px 50px;
+
+	.columns:first-child {
+		padding-right: 30px;
+	}
+
+	.columns {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.article {
+		border-bottom: 1px solid $gray3;
+		margin-top: 15px;
+	}
+
+	.article:first-child {
+		margin-top: 30px;
+	}
+}
+
+footer {
+	background: url(/assets/img/big-ears-splash-footer.jpg) no-repeat center center;
+	background-size: cover;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}

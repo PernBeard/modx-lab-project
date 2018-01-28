@@ -1662,7 +1662,7 @@ td {
 p {
   margin-bottom: 1rem;
   font-size: inherit;
-  line-height: 1.6;
+  line-height: 20px;
   text-rendering: optimizeLegibility; }
 
 em,
@@ -1774,7 +1774,7 @@ ol,
 dl {
   margin-bottom: 1rem;
   list-style-position: outside;
-  line-height: 1.6; }
+  line-height: 20px; }
 
 li {
   font-size: inherit; }
@@ -1801,7 +1801,7 @@ blockquote {
   padding: 0.5625rem 1.25rem 0 1.1875rem;
   border-left: 1px solid #cacaca; }
   blockquote, blockquote p {
-    line-height: 1.6;
+    line-height: 20px;
     color: #8a8a8a; }
 
 cite {
@@ -5121,3 +5121,133 @@ button {
 
 .button:hover {
   background: #4c5438; }
+
+html, body {
+  background: #f2f2f2; }
+
+.hero {
+  background: url("/assets/img/big-ears-festival-2016-header.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+          background-size: cover; }
+
+#logo {
+  display: block;
+  float: left;
+  padding-top: 35px;
+  padding-bottom: 35px;
+  padding-left: 0; }
+  #logo img {
+    height: auto;
+    width: 100%; }
+
+#hero-spacer {
+  -webkit-transition: all 500ms ease-in;
+  transition: all 500ms ease-in;
+  border-right: 1px solid #fff;
+  float: left;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  position: relative; }
+
+#hero-slider-container {
+  padding-top: 35px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  position: relative; }
+  #hero-slider-container #hero-slider {
+    -webkit-transition: all 500ms ease-in;
+    transition: all 500ms ease-in;
+    padding: 0;
+    clip: rect(0 4000px 300px 0);
+    /* IE4 to IE7 */
+    clip: rect(0, 4000px, 300px, 0);
+    /* IE8+ & other browsers */
+    list-style: none;
+    height: 100%;
+    margin: 0;
+    width: 0;
+    position: absolute;
+    z-index: 1; }
+    #hero-slider-container #hero-slider li {
+      -webkit-transition: all 300ms ease-in;
+      transition: all 300ms ease-in;
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0;
+      z-index: 5; }
+      #hero-slider-container #hero-slider li img {
+        max-width: none;
+        width: auto; }
+      #hero-slider-container #hero-slider li.to-left {
+        right: 200%;
+        opacity: 0; }
+      #hero-slider-container #hero-slider li.to-right {
+        right: -100%;
+        opacity: 0; }
+      #hero-slider-container #hero-slider li.active {
+        opacity: 1; }
+  #hero-slider-container #slider-controls {
+    -webkit-transition: all 300ms ease-in;
+    transition: all 300ms ease-in;
+    padding: 15px 0 0 30px;
+    opacity: 0;
+    position: absolute;
+    top: 100%; }
+    #hero-slider-container #slider-controls a {
+      display: inline-block; }
+    #hero-slider-container #slider-controls a:first-child {
+      margin-right: 10px; }
+
+#event-cta-container {
+  background: #fff url(/assets/img/gradient-repeater.jpg) repeat-x left bottom;
+  -webkit-box-shadow: 0px -12px 20px 0px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px -12px 20px 0px rgba(0, 0, 0, 0.25);
+  padding: 30px 50px 15px;
+  margin-bottom: -50px; }
+  #event-cta-container a {
+    display: inline-block; }
+  #event-cta-container a:first-child {
+    margin-right: 30px; }
+
+a.hover-img {
+  position: relative; }
+  a.hover-img img {
+    -webkit-transition: all 300ms ease-in;
+    transition: all 300ms ease-in;
+    opacity: 1; }
+  a.hover-img img.hover-img {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0; }
+  a.hover-img:hover img {
+    opacity: 0; }
+  a.hover-img:hover img.hover-img {
+    opacity: 1;
+    z-index: 5; }
+
+.event-cta-row {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.content-row {
+  padding: 80px 15px 50px; }
+  .content-row .columns:first-child {
+    padding-right: 30px; }
+  .content-row .columns {
+    padding-left: 0;
+    padding-right: 0; }
+  .content-row .article {
+    border-bottom: 1px solid #d3d3d3;
+    margin-top: 15px; }
+  .content-row .article:first-child {
+    margin-top: 30px; }
+
+footer {
+  background: url(/assets/img/big-ears-splash-footer.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+          background-size: cover;
+  padding-top: 25px;
+  padding-bottom: 25px; }
