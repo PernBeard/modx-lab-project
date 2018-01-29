@@ -5172,6 +5172,7 @@ a.hover-img {
 #hero-slider-container {
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
+  height: 121px;
   padding-top: 35px;
   position: relative; }
   #hero-slider-container #hero-slider {
@@ -5186,7 +5187,7 @@ a.hover-img {
     margin: 0;
     padding: 0;
     position: absolute;
-    width: 0;
+    width: 100%;
     z-index: 1; }
     #hero-slider-container #hero-slider li {
       opacity: 0;
@@ -5205,9 +5206,6 @@ a.hover-img {
         opacity: 0; }
       #hero-slider-container #hero-slider li.active {
         opacity: 1; }
-      #hero-slider-container #hero-slider li.animating {
-        left: auto;
-        right: 0; }
   #hero-slider-container #slider-controls {
     -webkit-transition: all 300ms ease-in;
     transition: all 300ms ease-in;

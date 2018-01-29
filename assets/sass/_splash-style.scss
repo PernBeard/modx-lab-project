@@ -62,6 +62,7 @@ a.hover-img {
 
 #hero-slider-container {
 	box-sizing: content-box;
+	height: 121px;
 	padding-top: 35px;
 	position: relative;
 
@@ -74,7 +75,7 @@ a.hover-img {
 		margin: 0;
 		padding: 0;
 		position: absolute;
-		width: 0;
+		width: 100%;
 		z-index: 1;
 
 		li {
@@ -101,11 +102,6 @@ a.hover-img {
 
 			&.active {
 				opacity: 1;
-			}
-
-			&.animating {
-				left: auto;
-				right: 0;
 			}
 		}
 	}

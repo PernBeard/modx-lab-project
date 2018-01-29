@@ -10475,8 +10475,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		var	slider = document.getElementById('hero-slider');
 		var	sliderControls = document.getElementById('slider-controls');
 
-		var activeSlide = slider.getElementsByClassName('active').item(0);
-		var slideImg = activeSlide.firstChild;
+		var firstSlide = slider.firstElementChild;
+		console.log(firstSlide);
+		var slideImg = firstSlide.firstElementChild;
 
 		var newImg = new Image();
 		newImg.src = slideImg.src;
@@ -10486,15 +10487,16 @@ document.addEventListener("DOMContentLoaded", function() {
 		slider.style.height = sliderImgHeight + "px";
 
 		setTimeout(function() {
-			$(slider).animate({'width': '100%'});
+			// $(slider).animate({'width': '100%'}, 1000, 'linear');
+			$(firstSlide).css({'left': '-100%', 'opacity': 0}).animate({'left': '30px', 'opacity': 1});
 			// slider.style.width = "100%";
 		}, 1500);
 
 		setTimeout(function() {
 			$(sliderControls).animate({'opacity': 1});
-			$(activeSlide).removeClass('animating');
+			$(firstSlide).addClass('active');
 			// sliderControls.style.opacity = 1;
-		}, 2000);
+		}, 2200);
 	};
 
 	var animatePaperBirds = function() {
