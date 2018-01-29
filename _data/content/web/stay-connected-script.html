@@ -28,23 +28,20 @@ $('form#stay-connected').on('submit', function() {
         data: $('form#stay-connected').serialize(),
         success: function(data){
 
-        	console.log(data);
-
         	if(data.status == 'success'){
 
-            	alert('Success!');
+            	alert(data.message);
 
         	}else if(data.status == 'error'){
 
-            	alert('That email address is already signed up!');
+            	alert(data.message);
 
         	}
 
     	},
 
-    	error: function(data){
-            console.log(data);
-        	alert('Sorry, we could not keep you connected.')
+    	error: function(jqXHR, textStatus, errorThrown) {
+        	alert('Sorry, we could not process your request.')
     	}
     });
 

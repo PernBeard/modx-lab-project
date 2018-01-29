@@ -18,3 +18,6 @@ ht.access
 # include /asset and /_data
 !/assets/
 !/_data/
+
+# dont store mail settings
+/_data/system_settings/mail*.yaml
