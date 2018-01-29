@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 
+	var leftTimeout, rightTimeout;
+
 	var animateHeroSpacer = function() {
 		var logo = document.getElementById('logo');
 		var spacer = document.getElementById('hero-spacer');
@@ -55,18 +57,18 @@ document.addEventListener("DOMContentLoaded", function() {
 			prevSlide = slider.lastElementChild;
 		}
 
-		$(activeSlide).animate({'right': '-100%', 'opacity': 0});
-		$(prevSlide).css({'right': '0', 'opacity': 0});
+		$(activeSlide).animate({'left': '100%', 'opacity': 0});
+		$(prevSlide).css({'left': '30px', 'opacity': 0});
 		// activeSlide.className = "to-right";
 
 		setTimeout(function() {
-			$(prevSlide).animate({'right': '0', 'opacity': 1});
+			$(prevSlide).animate({'left': '30px', 'opacity': 1});
 			prevSlide.className = "active";
 		}, 300);
 
 		setTimeout(function() {
 			activeSlide.className = "";
-			$(activeSlide).css({'right': '', 'opacity': ''});
+			$(activeSlide).css({'left': '', 'opacity': ''});
 			bindHeroSliderControls();
 		}, 600);
 	};
@@ -87,18 +89,18 @@ document.addEventListener("DOMContentLoaded", function() {
 			nextSlide = slider.firstElementChild;
 		}
 
-		$(activeSlide).animate({'right': '200%', 'opacity': 0});
-		$(nextSlide).css({'right': '0', 'opacity': 0});
+		$(activeSlide).animate({'left': '-100%', 'opacity': 0});
+		$(nextSlide).css({'left': '30px', 'opacity': 0});
 		// activeSlide.className = "to-left";
 
 		setTimeout(function() {
-			$(nextSlide).animate({'right': '0', 'opacity': 1});
+			$(nextSlide).animate({'left': '30px', 'opacity': 1});
 			nextSlide.className = "active";
 		}, 300);
 
 		setTimeout(function() {
 			activeSlide.className = "";
-			$(activeSlide).css({'right': '', 'opacity': ''});
+			$(activeSlide).css({'left': '', 'opacity': ''});
 			bindHeroSliderControls();
 		}, 600);
 	};
@@ -125,6 +127,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		setTimeout(function() {
 			$(sliderControls).animate({'opacity': 1});
+			$(activeSlide).removeClass('animating');
 			// sliderControls.style.opacity = 1;
 		}, 2000);
 	};
@@ -161,13 +164,44 @@ document.addEventListener("DOMContentLoaded", function() {
 		// bird.style.top = newY + "px";
 		// bird.style.left = newX + "px";
 
-		setTimeout(function() {
-			flutter(bird, birdXBase, birdYBase, xDeltaLimit, yDeltaLimit);
-		}, 1000);
+		if ($(bird).attr('id') == "left-bird") {
+			leftTimeout = setTimeout(function() {
+				flutter(bird, birdXBase, birdYBase, xDeltaLimit, yDeltaLimit);
+			}, 1000);
+		}
+		else {
+			rightTimeout = setTimeout(function() {
+				flutter(bird, birdXBase, birdYBase, xDeltaLimit, yDeltaLimit);
+			}, 1000);
+		}
 	};
 
 	var randomFlutter = function(min, max) {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
+	};
+
+	var handleWindowResize = function() {
+		$(window).resize(function() {
+			var width = $("#event-cta-container").outerWidth();
+			var leftWidth = $("#left-bird").width();
+			var rightWidth = $("#left-bird").width();
+			var leftBirdLeft = (-1 * (leftWidth * 0.8));
+			var rightBirdLeft = (width - (rightWidth * 0.2));
+
+			clearTimeout(leftTimeout);
+			clearTimeout(rightTimeout);
+
+			$("#left-bird").css({'left': leftBirdLeft + "px", 'top': '-20px'});
+			$("#right-bird").css({'left': rightBirdLeft + "px", 'top': '-10px'});
+
+			leftTimeout = setTimeout(function() {
+				flutter($("#left-bird").get(0), leftBirdLeft, -20, 2, 10);
+			}, 1000);
+
+			rightTimeout = setTimeout(function() {
+				flutter($("#right-bird").get(0), rightBirdLeft, -10, 2, 10);
+			}, 1000);
+		});
 	};
 	
 	var init = function() {
@@ -175,6 +209,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		bindHeroSliderControls();
 		animateHeroSlider();
 		animatePaperBirds();
+		handleWindowResize();
 	};
 
 	init();

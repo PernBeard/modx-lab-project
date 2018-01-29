@@ -52,6 +52,7 @@ a.hover-img {
 #hero-spacer {
 	@include transition(all 500ms ease-in);
 	border-right: 1px solid #fff;
+	display: block;
 	float: left;
 	height: 0;
 	margin: 0;
@@ -79,7 +80,7 @@ a.hover-img {
 		li {
 			opacity: 0;
 			position: absolute;
-			right: 0;
+			left: 30px;
 			top: 0;
 			z-index: 5;
 
@@ -89,17 +90,22 @@ a.hover-img {
 			}
 
 			&.to-left {
-				right: 200%;
+				left: -100%;
 				opacity: 0;
 			}
 			
 			&.to-right {
-				right: -100%;
+				right: 200%;
 				opacity: 0;
 			}
 
 			&.active {
 				opacity: 1;
+			}
+
+			&.animating {
+				left: auto;
+				right: 0;
 			}
 		}
 	}
@@ -139,6 +145,7 @@ a.hover-img {
 
 #left-bird,
 #right-bird {
+	display: block;
 	position: absolute;
 	opacity: 0;
 }
@@ -238,4 +245,89 @@ footer {
 			margin-left: 10px;
 		}
 	}
+}
+
+
+@include breakpoint(medium down) {
+
+	#hero-spacer,
+	#left-bird,
+	#right-bird {
+		display: none;
+	}
+
+	#hero-slider-container {
+		padding-top: 0;
+	}
+
+	.event-cta-row {
+		padding: 0;
+
+		#event-cta-container {
+			text-align: center;
+			margin: 70px 0 0 0;
+			position: static;
+
+			a:first-of-type {
+				margin-right: 0;
+				margin-bottom: 30px;
+			}
+		}
+	}
+
+	.content-row {
+		padding-top: 30px;
+
+		.articles {
+			margin-bottom: 30px;
+		}
+	}
+
+	footer {
+		form {
+			margin: 15px auto;
+			width: 60%;
+
+			[type='text'] {
+				width: 70%;
+			}	
+
+			.button {
+				width: 30%;
+			}
+
+			&:after {
+				clear: both;
+				content: "";
+				display: table;
+			}
+		}
+
+		.social {
+			text-align: center;
+			margin: 0;
+			
+			li {
+				display: inline-block;
+				float: none;
+			}
+		}
+	}
+
+}
+
+@include breakpoint(small down) {
+	
+	footer form {
+		width: 80%;
+
+		[type='text'] {
+			width: 60%;
+		}	
+
+		.button {
+			width: 40%;
+		}
+	}	
+
 }

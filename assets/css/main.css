@@ -5162,6 +5162,7 @@ a.hover-img {
   -webkit-transition: all 500ms ease-in;
   transition: all 500ms ease-in;
   border-right: 1px solid #fff;
+  display: block;
   float: left;
   height: 0;
   margin: 0;
@@ -5190,20 +5191,23 @@ a.hover-img {
     #hero-slider-container #hero-slider li {
       opacity: 0;
       position: absolute;
-      right: 0;
+      left: 30px;
       top: 0;
       z-index: 5; }
       #hero-slider-container #hero-slider li img {
         max-width: none;
         width: auto; }
       #hero-slider-container #hero-slider li.to-left {
-        right: 200%;
+        left: -100%;
         opacity: 0; }
       #hero-slider-container #hero-slider li.to-right {
-        right: -100%;
+        right: 200%;
         opacity: 0; }
       #hero-slider-container #hero-slider li.active {
         opacity: 1; }
+      #hero-slider-container #hero-slider li.animating {
+        left: auto;
+        right: 0; }
   #hero-slider-container #slider-controls {
     -webkit-transition: all 300ms ease-in;
     transition: all 300ms ease-in;
@@ -5230,6 +5234,7 @@ a.hover-img {
 
 #left-bird,
 #right-bird {
+  display: block;
   position: absolute;
   opacity: 0; }
 
@@ -5304,3 +5309,49 @@ footer {
         display: block; }
     footer .social li:not(:first-child) {
       margin-left: 10px; }
+
+@media screen and (max-width: 63.9375em) {
+  #hero-spacer,
+  #left-bird,
+  #right-bird {
+    display: none; }
+  #hero-slider-container {
+    padding-top: 0; }
+  .event-cta-row {
+    padding: 0; }
+    .event-cta-row #event-cta-container {
+      text-align: center;
+      margin: 70px 0 0 0;
+      position: static; }
+      .event-cta-row #event-cta-container a:first-of-type {
+        margin-right: 0;
+        margin-bottom: 30px; }
+  .content-row {
+    padding-top: 30px; }
+    .content-row .articles {
+      margin-bottom: 30px; }
+  footer form {
+    margin: 15px auto;
+    width: 60%; }
+    footer form [type='text'] {
+      width: 70%; }
+    footer form .button {
+      width: 30%; }
+    footer form:after {
+      clear: both;
+      content: "";
+      display: table; }
+  footer .social {
+    text-align: center;
+    margin: 0; }
+    footer .social li {
+      display: inline-block;
+      float: none; } }
+
+@media screen and (max-width: 39.9375em) {
+  footer form {
+    width: 80%; }
+    footer form [type='text'] {
+      width: 60%; }
+    footer form .button {
+      width: 40%; } }

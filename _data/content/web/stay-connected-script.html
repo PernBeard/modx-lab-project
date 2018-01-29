@@ -1,0 +1,54 @@
+id: 2
+contentType: text/javascript
+pagetitle: 'Stay Connected Script'
+alias: stay-connected-script
+introtext: ''
+richtext: 0
+menuindex: 1
+searchable: 0
+createdby: 1
+createdon: 1517235521
+hidemenu: 1
+content_type: 5
+uri: ''
+properties: null
+tvs: {  }
+
+-----
+
+$(function() {
+	
+$('form#stay-connected').on('submit', function() {
+
+	$.ajax({
+        type: "POST",
+        url: "[[~4]]",
+        dataType  : "json",
+        cache : false,
+        data: $('form#stay-connected').serialize(),
+        success: function(data){
+
+        	console.log(data);
+
+        	if(data.status == 'success'){
+
+            	alert('Success!');
+
+        	}else if(data.status == 'error'){
+
+            	alert('That email address is already signed up!');
+
+        	}
+
+    	},
+
+    	error: function(data){
+            console.log(data);
+        	alert('Sorry, we could not keep you connected.')
+    	}
+    });
+
+    return false;
+});
+
+});
