@@ -59,7 +59,7 @@ body {
 
 a:link,
 a:visited {
-	@include transition(color 300ms ease-in);
+	@include transition(color 150ms ease-in);
 	color: $green;
 }
 
@@ -81,7 +81,7 @@ button {
 
 // Button Styles
 .button {
-	@include transition(background 300ms ease-in);
+	@include transition(background 150ms ease-in);
 	background: $green;
 	border: 1px solid #fff;
 	padding: 10px 15px;

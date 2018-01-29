@@ -3,6 +3,8 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
+var rename = require('gulp-rename');
+var uglify = require('gulp-uglify');
 var autoprefixer = require('gulp-autoprefixer');
 var notify = require('gulp-notify');
 
@@ -19,6 +21,17 @@ gulp.task('sass', function () {
     .pipe(notify('Sass task complete!'));
 });
 
+gulp.task('scripts', function () {
+  return gulp.src(['./node_modules/jquery/dist/jquery.js', './assets/scripts/**/*.js'])
+    .pipe(concat('app.js'))
+    .pipe(gulp.dest('./assets/js'))
+    .pipe(rename('app.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./assets/js'))
+    .pipe(notify('Scripts task complete!'));
+});
+
 gulp.task('watch', function () {
   gulp.watch('./assets/sass/**/*.scss', ['sass']);
+  gulp.watch('./assets/scripts/**/*.js', ['scripts']);
 });

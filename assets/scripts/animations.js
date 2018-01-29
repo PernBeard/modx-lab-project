@@ -10,8 +10,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		spacer.style.top = spacerMargin + "px";
 		
 		setTimeout(function() {
-			spacer.style.top = "24px";
-			spacer.style.height = logoHeight - 48 + "px";
+			$(spacer).animate({'top': '24px', 'height': logoHeight - 48 + "px"});
+			// spacer.style.top = "24px";
+			// spacer.style.height = logoHeight - 48 + "px";
 		}, 1000);
 	};
 
@@ -54,14 +55,18 @@ document.addEventListener("DOMContentLoaded", function() {
 			prevSlide = slider.lastElementChild;
 		}
 
-		activeSlide.className = "to-right";
+		$(activeSlide).animate({'right': '-100%', 'opacity': 0});
+		$(prevSlide).css({'right': '0', 'opacity': 0});
+		// activeSlide.className = "to-right";
 
 		setTimeout(function() {
+			$(prevSlide).animate({'right': '0', 'opacity': 1});
 			prevSlide.className = "active";
 		}, 300);
 
 		setTimeout(function() {
 			activeSlide.className = "";
+			$(activeSlide).css({'right': '', 'opacity': ''});
 			bindHeroSliderControls();
 		}, 600);
 	};
@@ -82,14 +87,18 @@ document.addEventListener("DOMContentLoaded", function() {
 			nextSlide = slider.firstElementChild;
 		}
 
-		activeSlide.className = "to-left";
+		$(activeSlide).animate({'right': '200%', 'opacity': 0});
+		$(nextSlide).css({'right': '0', 'opacity': 0});
+		// activeSlide.className = "to-left";
 
 		setTimeout(function() {
+			$(nextSlide).animate({'right': '0', 'opacity': 1});
 			nextSlide.className = "active";
 		}, 300);
 
 		setTimeout(function() {
 			activeSlide.className = "";
+			$(activeSlide).css({'right': '', 'opacity': ''});
 			bindHeroSliderControls();
 		}, 600);
 	};
@@ -110,11 +119,13 @@ document.addEventListener("DOMContentLoaded", function() {
 		slider.style.height = sliderImgHeight + "px";
 
 		setTimeout(function() {
-			slider.style.width = "100%";
+			$(slider).animate({'width': '100%'});
+			// slider.style.width = "100%";
 		}, 1500);
 
 		setTimeout(function() {
-			sliderControls.style.opacity = 1;
+			$(sliderControls).animate({'opacity': 1});
+			// sliderControls.style.opacity = 1;
 		}, 2000);
 	};
 
@@ -128,8 +139,11 @@ document.addEventListener("DOMContentLoaded", function() {
 		var rightBirdYBase = rightBird.offsetTop;
 
 		setTimeout(function() {
-			leftBird.style.opacity = 1;
-			rightBird.style.opacity = 1;
+			$(leftBird).animate({'opacity': 1});
+			$(rightBird).animate({'opacity': 1});
+			// leftBird.style.opacity = 1;
+			// rightBird.style.opacity = 1;
+			
 			flutter(leftBird, leftBirdXBase, leftBirdYBase, 2, 10);
 			flutter(rightBird, rightBirdXBase, rightBirdYBase, 2, 10);
 		}, 2500);
@@ -143,8 +157,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		var newX = birdXBase + deltaX;
 		var newY = birdYBase + deltaY;
 
-		bird.style.top = newY + "px";
-		bird.style.left = newX + "px";
+		$(bird).animate({'top': newY + "px", 'left': newX + "px"}, 1000, 'linear');
+		// bird.style.top = newY + "px";
+		// bird.style.left = newX + "px";
 
 		setTimeout(function() {
 			flutter(bird, birdXBase, birdYBase, xDeltaLimit, yDeltaLimit);
