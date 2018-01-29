@@ -76,7 +76,7 @@ button {
 	font-size: 18px;
 	font-style: normal;
 	line-height: 20px;
-	text-decoration: underline;
+	text-transform: uppercase;
 }
 
 // Button Styles
@@ -85,6 +85,7 @@ button {
 	background: $green;
 	border: 1px solid #fff;
 	padding: 10px 15px;
+	text-decoration: none;
 }
 
 .button:hover {

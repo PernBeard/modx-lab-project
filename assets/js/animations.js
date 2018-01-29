@@ -117,11 +117,49 @@ document.addEventListener("DOMContentLoaded", function() {
 			sliderControls.style.opacity = 1;
 		}, 2000);
 	};
+
+	var animatePaperBirds = function() {
+		var leftBird = document.getElementById('left-bird');
+		var rightBird = document.getElementById('right-bird');
+
+		var leftBirdXBase = leftBird.offsetLeft;
+		var leftBirdYBase = leftBird.offsetTop;
+		var rightBirdXBase = rightBird.offsetLeft;
+		var rightBirdYBase = rightBird.offsetTop;
+
+		setTimeout(function() {
+			leftBird.style.opacity = 1;
+			rightBird.style.opacity = 1;
+			flutter(leftBird, leftBirdXBase, leftBirdYBase, 2, 10);
+			flutter(rightBird, rightBirdXBase, rightBirdYBase, 2, 10);
+		}, 2500);
+
+	};
+
+	var flutter = function(bird, birdXBase, birdYBase, xDeltaLimit, yDeltaLimit) {
+		var deltaX = randomFlutter(xDeltaLimit * -1, xDeltaLimit);
+		var deltaY = randomFlutter(yDeltaLimit * -1, yDeltaLimit);
+
+		var newX = birdXBase + deltaX;
+		var newY = birdYBase + deltaY;
+
+		bird.style.top = newY + "px";
+		bird.style.left = newX + "px";
+
+		setTimeout(function() {
+			flutter(bird, birdXBase, birdYBase, xDeltaLimit, yDeltaLimit);
+		}, 1000);
+	};
+
+	var randomFlutter = function(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	};
 	
 	var init = function() {
 		animateHeroSpacer();
 		bindHeroSliderControls();
 		animateHeroSlider();
+		animatePaperBirds();
 	};
 
 	init();

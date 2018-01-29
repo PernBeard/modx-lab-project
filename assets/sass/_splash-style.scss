@@ -2,6 +2,35 @@ html, body {
 	background: $gray1;
 }
 
+a.hover-img {
+	position: relative;
+
+	img {
+		@include transition(all 300ms ease-in);
+		opacity: 1;
+	}
+
+	img.hover-img {
+		left: 0;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+	}
+
+	&:hover {
+
+		img {
+			opacity: 0;
+		}
+
+		img.hover-img {
+			opacity: 1;
+			z-index: 5;
+		}
+
+	}
+}
+
 .hero {
 	background: url('/assets/img/big-ears-festival-2016-header.jpg') no-repeat center center;
 	background-size: cover;
@@ -10,9 +39,9 @@ html, body {
 #logo {
 	display: block;
 	float: left;
-	padding-top: 35px;
 	padding-bottom: 35px;
 	padding-left: 0;
+	padding-top: 35px;
 
 	img {
 		height: auto;
@@ -25,34 +54,34 @@ html, body {
 	border-right: 1px solid #fff;
 	float: left;
 	height: 0;
-	padding: 0;
 	margin: 0;
+	padding: 0;
 	position: relative;
 }
 
 #hero-slider-container {
-	padding-top: 35px;
 	box-sizing: content-box;
+	padding-top: 35px;
 	position: relative;
 
 	#hero-slider {
 		@include transition(all 500ms ease-in);
-		padding: 0;
 		clip: rect(0 4000px 300px 0); /* IE4 to IE7 */
 		clip: rect(0, 4000px, 300px, 0); /* IE8+ & other browsers */
-		list-style: none;
 		height: 100%;
+		list-style: none;
 		margin: 0;
-		width: 0;
+		padding: 0;
 		position: absolute;
+		width: 0;
 		z-index: 1;
 
 		li {
 			@include transition(all 300ms ease-in);
-			position: absolute;
-			top: 0;
-			right: 0;
 			opacity: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
 			z-index: 5;
 
 			img {
@@ -78,8 +107,8 @@ html, body {
 
 	#slider-controls {
 		@include transition(all 300ms ease-in);
-		padding: 15px 0 0 30px;
 		opacity: 0;
+		padding: 15px 0 0 30px;
 		position: absolute;
 		top: 100%;
 		
@@ -96,45 +125,34 @@ html, body {
 #event-cta-container {
 	background: #fff url(/assets/img/gradient-repeater.jpg) repeat-x left bottom;
 	box-shadow: 0px -12px 20px 0px rgba(0,0,0,0.25);
+	margin-bottom: -40px;
 	padding: 30px 50px 15px;
-	margin-bottom: -50px;
+	position: relative;
 
 	a {
 		display: inline-block;
 	}
 
-	a:first-child {
+	a:first-of-type {
 		margin-right: 30px;
 	}
 }
 
-a.hover-img {
-	position: relative;
+#left-bird,
+#right-bird {
+	@include transition(all 1000ms linear);
+	position: absolute;
+	opacity: 0;
+}
 
-	img {
-		@include transition(all 300ms ease-in);
-		opacity: 1;
-	}
+#left-bird {
+	left: -115px;
+	top: -20px;
+}
 
-	img.hover-img {
-		opacity: 0;
-		position: absolute;
-		left: 0;
-		top: 0;
-	}
-
-	&:hover {
-
-		img {
-			opacity: 0;
-		}
-
-		img.hover-img {
-			opacity: 1;
-			z-index: 5;
-		}
-
-	}
+#right-bird {
+	right: -115px;
+	top: -10px;
 }
 
 .event-cta-row {
@@ -167,6 +185,58 @@ a.hover-img {
 footer {
 	background: url(/assets/img/big-ears-splash-footer.jpg) no-repeat center center;
 	background-size: cover;
-	padding-top: 25px;
 	padding-bottom: 25px;
+	padding-top: 25px;
+
+	.columns:last-child {
+		padding: 0;
+	}
+
+	[type='text'] {
+		background: $gray1;
+		border: 1px solid #fff;
+		box-shadow: none;
+		color: $text_gray;
+		float: left;
+		font-family: $proxima;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		height: auto;
+		line-height: 20px;
+		margin: 0;
+		outline: 0;
+		padding: 10px 15px;
+		width: 80%;
+	}
+
+	.button {
+		color: #fff;
+		float: left;
+		font-family: $nimbus;
+		font-size: 18px;
+		font-style: normal;
+		line-height: 20px;
+		margin: 0;
+		text-transform: uppercase;
+		width: 20%;
+	}
+
+	.social {
+		list-style: none;
+		margin: 3px 0 0 15px;
+
+		li {
+			float: left;
+			width: 35px;
+
+			a {
+				display: block;
+			}
+		}
+
+		li:not(:first-child) {
+			margin-left: 10px;
+		}
+	}
 }
