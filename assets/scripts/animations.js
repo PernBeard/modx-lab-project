@@ -111,7 +111,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		var	sliderControls = document.getElementById('slider-controls');
 
 		var firstSlide = slider.firstElementChild;
-		console.log(firstSlide);
 		var slideImg = firstSlide.firstElementChild;
 
 		var newImg = new Image();
