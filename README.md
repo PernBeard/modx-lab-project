@@ -9,3 +9,7 @@ Lost some modx system settings when using Gitify to build from dev files. Look i
 Did not properly utilize the foundation 6 style settings file. This could help reduce redundancy and clean up scss files.
 
 Mix of vanilla JS and jQuery in animation script. Either full embrace jQuery for the project or find a polyfill for animations/transitions in IE9.
+
+Replace alert notification from signup with vex modal.
+
+Slider controls are not positioned correctly on initial page load. jQuery logic is not setting proper height for slide container.
