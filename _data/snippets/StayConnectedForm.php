@@ -45,7 +45,7 @@ if ( isset($_POST['signup_form_csrf']) ) {
 		$modx->mail->set(modMail::MAIL_FROM_NAME, 'Big Ears');
 		$modx->mail->set(modMail::MAIL_SENDER, 'mikeaperna@gmail.com');
 		$modx->mail->set(modMail::MAIL_SUBJECT, 'New Big Ears Signup');
-		$modx->mail->address('to', 'jmills@thinkpyxl.com', 'Jerod');
+		$modx->mail->address('to', 'mikeaperna@gmail.com', 'Jerod');
 		$modx->mail->address('reply-to', 'no-reply@domain.com');
 		$modx->mail->setHTML(true);
 

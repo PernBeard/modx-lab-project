@@ -30,18 +30,24 @@ $('form#stay-connected').on('submit', function() {
 
         	if(data.status == 'success'){
 
-            	alert(data.message);
+            	vex.dialog.alert({
+                    message: data.message
+                });
 
         	}else if(data.status == 'error'){
 
-            	alert(data.message);
+        	   vex.dialog.alert({
+                    message: data.message
+                });
 
         	}
 
     	},
 
     	error: function(jqXHR, textStatus, errorThrown) {
-        	alert('Sorry, we could not process your request.')
+                vex.dialog.alert({
+                    message: 'Sorry, we could not process your request.'
+                });
     	}
     });
 

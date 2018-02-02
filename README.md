@@ -10,6 +10,8 @@ Did not properly utilize the foundation 6 style settings file. This could help r
 
 Mix of vanilla JS and jQuery in animation script. Either full embrace jQuery for the project or find a polyfill for animations/transitions in IE9.
 
-Replace alert notification from signup with vex modal.
+**fixed** Replace alert notification from signup with vex modal.
 
-Slider controls are not positioned correctly on initial page load. jQuery logic is not setting proper height for slide container.
+**fixed** Slider controls are not positioned correctly on initial page load. jQuery logic is not setting proper height for slide container.
+
+**fixed** Huge issue with resources that were not published breaking functionality in IE.

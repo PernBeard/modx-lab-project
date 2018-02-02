@@ -131,23 +131,25 @@ document.addEventListener("DOMContentLoaded", function() {
 		var slideImg = firstSlide.firstElementChild;
 
 		// get height of first slide image even when not rendered on screen
-		var newImg = new Image();
-		newImg.src = slideImg.src;
-		sliderImgHeight = newImg.height;
+		var tempImg = document.createElement('img');
+		tempImg.src = slideImg.src;
 
-		sliderContainer.style.height = sliderImgHeight + "px";
-		slider.style.height = sliderImgHeight + "px";
+		tempImg.onload = function(){
+			var sliderImgHeight = tempImg.height;
+			sliderContainer.style.height = sliderImgHeight + "px";
+			slider.style.height = sliderImgHeight + "px";
 
-		// animate first slide coming in from left
-		setTimeout(function() {
-			$(firstSlide).css({'left': '-100%', 'opacity': 0}).animate({'left': '30px', 'opacity': 1});
-		}, 1500); // show animation after hero spacer animates
+			// animate first slide coming in from left
+			setTimeout(function() {
+				$(firstSlide).css({'left': '-100%', 'opacity': 0}).animate({'left': '30px', 'opacity': 1});
+			}, 1500); // show animation after hero spacer animates
 
-		// once first slide is in place, show controls
-		setTimeout(function() {
-			$(sliderControls).animate({'opacity': 1});
-			$(firstSlide).addClass('active');
-		}, 2500);
+			// once first slide is in place, show controls
+			setTimeout(function() {
+				$(sliderControls).animate({'opacity': 1});
+				$(firstSlide).addClass('active');
+			}, 2000);
+		}
 	};
 
 	var animatePaperBirds = function() {
